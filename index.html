@@ -151,9 +151,8 @@
     <!-- Desktop Navigation -->
     <ul class="hidden md:flex gap-8 items-center">
         <li><a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">Inicio</a></li>
+        <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#esencia">Esencia</a></li>
         <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#coleccion">Colección</a></li>
-        <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#ocasiones">Ocasiones</a></li>
-        <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#talleres">Talleres/Eventos</a></li>
         <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#contacto">Contacto</a></li>
     </ul>
     <!-- Trailing Icons -->
@@ -167,9 +166,8 @@
 <div id="mobile-menu" class="md:hidden hidden border-t border-outline-variant/30 bg-background/95 backdrop-blur-md">
     <ul class="flex flex-col gap-1 px-margin-mobile py-4">
         <li><a class="block py-3 text-primary font-label-md text-label-md" href="#">Inicio</a></li>
+        <li><a class="block py-3 text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#esencia">Esencia</a></li>
         <li><a class="block py-3 text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#coleccion">Colección</a></li>
-        <li><a class="block py-3 text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#ocasiones">Ocasiones</a></li>
-        <li><a class="block py-3 text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#talleres">Talleres/Eventos</a></li>
         <li><a class="block py-3 text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#contacto">Contacto</a></li>
     </ul>
 </div>
@@ -234,15 +232,15 @@
             Ver todas <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
         </a>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[600px]">
-        <!-- Large Item 1: Arreglos de Autor -->
-        <div class="group relative md:col-span-2 md:row-span-2 rounded-sm overflow-hidden h-[400px] md:h-auto cursor-pointer" data-category-card="arreglos-autor">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[480px]">
+        <!-- Card 1: Arreglos de Autor -->
+        <div class="group relative rounded-sm overflow-hidden h-[360px] md:h-full cursor-pointer shadow-sm hover:shadow-md transition-all duration-300" data-category-card="arreglos-autor">
             <img alt="Arreglos de Autor" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="/images/arreglos-autor.jpg"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/30 to-transparent transition-opacity duration-300"></div>
-            <div class="absolute bottom-0 left-0 p-8 w-full flex justify-between items-end">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent transition-opacity duration-300"></div>
+            <div class="absolute bottom-0 left-0 p-6 md:p-8 w-full flex justify-between items-end">
                 <div>
                     <span class="text-xs uppercase tracking-widest text-surface-container-lowest/70 font-label-md">Colección Principal</span>
-                    <h3 class="font-headline-md text-headline-md text-surface-container-lowest">Arreglos de Autor</h3>
+                    <h3 class="font-headline-md text-headline-md text-surface-container-lowest mt-1">Arreglos de Autor</h3>
                     <p class="font-body-sm text-body-sm text-surface-container-lowest/90 mt-2">Diseños únicos e irrepetibles con alma botánica.</p>
                 </div>
                 <div class="w-10 h-10 rounded-full bg-surface-container-lowest/20 backdrop-blur-sm flex items-center justify-center text-surface-container-lowest group-hover:bg-primary group-hover:text-on-primary transition-all duration-300 shrink-0">
@@ -250,42 +248,36 @@
                 </div>
             </div>
         </div>
-        <!-- Medium Item 1: Bodas y Eventos -->
-        <div class="group relative md:col-span-2 rounded-sm overflow-hidden h-[300px] cursor-pointer" data-category-card="bodas-eventos">
+
+        <!-- Card 2: Bodas y Eventos -->
+        <div class="group relative rounded-sm overflow-hidden h-[360px] md:h-full cursor-pointer shadow-sm hover:shadow-md transition-all duration-300" data-category-card="bodas-eventos">
             <img alt="Bodas y Eventos" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD58cVvGTwuDwnXkfuUNDbZMXAspA0y1_XleKQdZbld9lOvZQn4JPcPU0DhXlkc1i5Oj9U4KY5b0vJBJiD_puKCYoQiaue-ltdMPNvkLE_U3cwQ_TDXYdQslnYY7WeW65g3I3Ao3wFIJZsr4Zyf2f1G2dN6l0B3LYDFp171ylIOOqoHyuea_Fz2_T-EEuhh4ZeOk8gmttc3MDvCIUfyIdYLnTeVBTe9nxB8vLT0VVgOSAmwqHuEBJRp"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-6 w-full flex justify-between items-end">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent transition-opacity duration-300"></div>
+            <div class="absolute bottom-0 left-0 p-6 md:p-8 w-full flex justify-between items-end">
                 <div>
                     <span class="text-xs uppercase tracking-widest text-surface-container-lowest/70 font-label-md">Ambientación</span>
-                    <h3 class="font-headline-sm text-headline-sm text-surface-container-lowest">Bodas y Eventos</h3>
+                    <h3 class="font-headline-md text-headline-md text-surface-container-lowest mt-1">Bodas y Eventos</h3>
+                    <p class="font-body-sm text-body-sm text-surface-container-lowest/90 mt-2">Flores que acompañan momentos inolvidables.</p>
                 </div>
-                <div class="w-8 h-8 rounded-full bg-surface-container-lowest/20 backdrop-blur-sm flex items-center justify-center text-surface-container-lowest group-hover:bg-primary group-hover:text-on-primary transition-all duration-300 shrink-0">
-                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                <div class="w-10 h-10 rounded-full bg-surface-container-lowest/20 backdrop-blur-sm flex items-center justify-center text-surface-container-lowest group-hover:bg-primary group-hover:text-on-primary transition-all duration-300 shrink-0">
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
                 </div>
             </div>
         </div>
-        <!-- Small Items: Ocasiones Especiales -->
-        <div class="group relative rounded-sm overflow-hidden h-[280px] cursor-pointer" data-category-card="ocasiones-especiales">
+
+        <!-- Card 3: Ocasiones Especiales -->
+        <div class="group relative rounded-sm overflow-hidden h-[360px] md:h-full cursor-pointer shadow-sm hover:shadow-md transition-all duration-300" data-category-card="ocasiones-especiales">
             <img alt="Ocasiones Especiales" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYvWxL3Cn22A0GuZmuLv2zhuTpl6xpuxxyQLalwvngyQwKcJw6X5oJb3tQRSnQgs9HGJC9gmqHbwZkrXTfNZCvCWTcaA85rg-VY7UF7CA8G4sb_5kRZhuVpIXkt5sI3ZB8_A2_w7rJ2hF7_dNScwcf_0yPAhz3wiMwrqToXFTxx4MREmhj0Itm4F4-KMWfEfz18u8IL1lI8ZzfKqyOoLQlkdbM7PaLZ_4IjbL1NbXN_1AT0cg6WHgG"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-6 w-full flex justify-between items-end">
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent transition-opacity duration-300"></div>
+            <div class="absolute bottom-0 left-0 p-6 md:p-8 w-full flex justify-between items-end">
                 <div>
-                    <h3 class="font-headline-sm text-headline-sm text-surface-container-lowest">Ocasiones Especiales</h3>
+                    <span class="text-xs uppercase tracking-widest text-surface-container-lowest/70 font-label-md">Celebración</span>
+                    <h3 class="font-headline-md text-headline-md text-surface-container-lowest mt-1">Ocasiones Especiales</h3>
+                    <p class="font-body-sm text-body-sm text-surface-container-lowest/90 mt-2">Detalles florales para fechas memorables.</p>
                 </div>
-                <div class="w-7 h-7 rounded-full bg-surface-container-lowest/20 backdrop-blur-sm flex items-center justify-center text-surface-container-lowest group-hover:bg-primary group-hover:text-on-primary transition-all duration-300 shrink-0">
-                    <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                <div class="w-10 h-10 rounded-full bg-surface-container-lowest/20 backdrop-blur-sm flex items-center justify-center text-surface-container-lowest group-hover:bg-primary group-hover:text-on-primary transition-all duration-300 shrink-0">
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
                 </div>
-            </div>
-        </div>
-        <!-- Small Items: Talleres & Experiencias -->
-        <div class="group relative rounded-sm overflow-hidden h-[280px] cursor-pointer bg-surface-container-low flex items-center justify-center p-6 text-center border border-outline-variant/20 hover:border-secondary hover:bg-surface-container transition-all duration-300" id="talleres" data-category-card="talleres-experiencias">
-            <div>
-                <span class="material-symbols-outlined text-4xl text-secondary mb-3 group-hover:scale-110 transition-transform" data-icon="local_activity">local_activity</span>
-                <h3 class="font-headline-sm text-headline-sm text-on-surface">Talleres &amp; Experiencias</h3>
-                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Aprende el arte botánico.</p>
-                <span class="mt-3 inline-flex items-center gap-1 text-[11px] font-label-md text-secondary uppercase tracking-wider">
-                    Consultar fechas <span class="material-symbols-outlined text-xs">arrow_forward</span>
-                </span>
             </div>
         </div>
     </div>
@@ -304,7 +296,6 @@
         <button class="category-filter-btn px-5 py-2 text-xs font-semibold uppercase tracking-wider rounded-full border border-outline-variant text-on-surface hover:border-primary transition-all cursor-pointer" data-filter="arreglos-autor">Arreglos de Autor</button>
         <button class="category-filter-btn px-5 py-2 text-xs font-semibold uppercase tracking-wider rounded-full border border-outline-variant text-on-surface hover:border-primary transition-all cursor-pointer" data-filter="bodas-eventos">Bodas y Eventos</button>
         <button class="category-filter-btn px-5 py-2 text-xs font-semibold uppercase tracking-wider rounded-full border border-outline-variant text-on-surface hover:border-primary transition-all cursor-pointer" data-filter="ocasiones-especiales">Ocasiones Especiales</button>
-        <button class="category-filter-btn px-5 py-2 text-xs font-semibold uppercase tracking-wider rounded-full border border-outline-variant text-on-surface hover:border-primary transition-all cursor-pointer" data-filter="talleres-experiencias">Talleres & Experiencias</button>
     </div>
     
     <!-- Products Grid (dynamically populated) -->
