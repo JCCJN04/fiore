@@ -163,7 +163,7 @@ INSERT INTO products (name, description, price, image_url, badge, display_order,
     'Velvet Noche',
     'Borgoña profundo y texturas sedosas.',
     1100.00,
-    'https://lh3.googleusercontent.com/aida-public/AB6AXuCPEa6lkjtQE-bcibey-2OIqgSGaKA4xxsHDMF0iXRLy4GIZBwSzZibUmPG3o9lJPhmtl5o-7z0q8OI7qgHEUzRCDKMRsi0MqOwWnalj7vo-FXd2SCz4LpW-v6Eb0nyMtQlWmmjxIx7BO2GSx6J9EhKHCFmYgp1jqJepyRr1zlldC1-22FUgN-Z-FXVDj23vDL6Q5Rpxm8hXuEqUyIbAxum-U5qS7wdVXVZOv-xt5bFdXHkpPLwtBm9',
+    '/images/velvet-noche.jpg',
     '',
     4,
     (SELECT id FROM categories WHERE slug = 'arreglos-autor')
