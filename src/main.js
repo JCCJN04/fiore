@@ -9,7 +9,23 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu()
   loadProducts()
   initSpecialOrderForm()
+  initInstagramEmbeds()
 })
+
+function initInstagramEmbeds() {
+  if (window.instgrm) {
+    window.instgrm.Embeds.process()
+  } else {
+    // If script is still loading, wait and process
+    const checkInterval = setInterval(() => {
+      if (window.instgrm) {
+        window.instgrm.Embeds.process()
+        clearInterval(checkInterval)
+      }
+    }, 300)
+    setTimeout(() => clearInterval(checkInterval), 5000)
+  }
+}
 
 // ============================================
 // Mobile Menu Toggle
