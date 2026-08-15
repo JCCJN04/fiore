@@ -224,44 +224,68 @@
 </section>
 
 <!-- Category Bento Grid -->
-<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="esencia">
     <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg md:font-headline-lg text-on-surface">Nuestra Esencia</h2>
+        <div>
+            <span class="font-label-md text-label-md text-secondary tracking-widest uppercase mb-1 block">Filosofía Botánica</span>
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg md:font-headline-lg text-on-surface">Nuestra Esencia</h2>
+        </div>
         <a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors flex items-center gap-1 mt-4 md:mt-0 uppercase tracking-widest" href="#coleccion">
             Ver todas <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
         </a>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[600px]">
-        <!-- Large Item 1 -->
-        <div class="group relative md:col-span-2 md:row-span-2 rounded-sm overflow-hidden h-[400px] md:h-auto cursor-pointer">
-            <img alt="Arreglos de Autor" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOjXgFLx7yBL9PvHQjCM9VxNQ726lVSI4Ma9ZEJtb_-BzCpwQVznblpfCZvyV_nHnWHQjKBy2dR8cXbd_I0WDgeoLd6zkILDbIPt9__EUfdiWMM_NKmmB55YDCukp6LKHWO9KHtdbOtuGi1oq__yhdG9shLDPTSNAdgw-Fv61PoHOUEJXPjXkOb0g8nOK9jzxLtejqJmc4TkoszLy6TllDFEpcmq5mUK6MIbyukZIA5cih2Qnruo-0"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-8">
-                <h3 class="font-headline-md text-headline-md text-surface-container-lowest">Arreglos de Autor</h3>
-                <p class="font-body-sm text-body-sm text-surface-container-lowest/80 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">Diseños únicos e irrepetibles.</p>
+        <!-- Large Item 1: Arreglos de Autor -->
+        <div class="group relative md:col-span-2 md:row-span-2 rounded-sm overflow-hidden h-[400px] md:h-auto cursor-pointer" data-category-card="arreglos-autor">
+            <img alt="Arreglos de Autor" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="/images/arreglos-autor.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/85 via-primary/30 to-transparent transition-opacity duration-300"></div>
+            <div class="absolute bottom-0 left-0 p-8 w-full flex justify-between items-end">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-surface-container-lowest/70 font-label-md">Colección Principal</span>
+                    <h3 class="font-headline-md text-headline-md text-surface-container-lowest">Arreglos de Autor</h3>
+                    <p class="font-body-sm text-body-sm text-surface-container-lowest/90 mt-2">Diseños únicos e irrepetibles con alma botánica.</p>
+                </div>
+                <div class="w-10 h-10 rounded-full bg-surface-container-lowest/20 backdrop-blur-sm flex items-center justify-center text-surface-container-lowest group-hover:bg-primary group-hover:text-on-primary transition-all duration-300 shrink-0">
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                </div>
             </div>
         </div>
-        <!-- Medium Item 1 -->
-        <div class="group relative md:col-span-2 rounded-sm overflow-hidden h-[300px] cursor-pointer">
+        <!-- Medium Item 1: Bodas y Eventos -->
+        <div class="group relative md:col-span-2 rounded-sm overflow-hidden h-[300px] cursor-pointer" data-category-card="bodas-eventos">
             <img alt="Bodas y Eventos" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD58cVvGTwuDwnXkfuUNDbZMXAspA0y1_XleKQdZbld9lOvZQn4JPcPU0DhXlkc1i5Oj9U4KY5b0vJBJiD_puKCYoQiaue-ltdMPNvkLE_U3cwQ_TDXYdQslnYY7WeW65g3I3Ao3wFIJZsr4Zyf2f1G2dN6l0B3LYDFp171ylIOOqoHyuea_Fz2_T-EEuhh4ZeOk8gmttc3MDvCIUfyIdYLnTeVBTe9nxB8vLT0VVgOSAmwqHuEBJRp"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-6">
-                <h3 class="font-headline-sm text-headline-sm text-surface-container-lowest">Bodas y Eventos</h3>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-6 w-full flex justify-between items-end">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-surface-container-lowest/70 font-label-md">Ambientación</span>
+                    <h3 class="font-headline-sm text-headline-sm text-surface-container-lowest">Bodas y Eventos</h3>
+                </div>
+                <div class="w-8 h-8 rounded-full bg-surface-container-lowest/20 backdrop-blur-sm flex items-center justify-center text-surface-container-lowest group-hover:bg-primary group-hover:text-on-primary transition-all duration-300 shrink-0">
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </div>
             </div>
         </div>
-        <!-- Small Items -->
-        <div class="group relative rounded-sm overflow-hidden h-[280px] cursor-pointer">
+        <!-- Small Items: Ocasiones Especiales -->
+        <div class="group relative rounded-sm overflow-hidden h-[280px] cursor-pointer" data-category-card="ocasiones-especiales">
             <img alt="Ocasiones Especiales" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYvWxL3Cn22A0GuZmuLv2zhuTpl6xpuxxyQLalwvngyQwKcJw6X5oJb3tQRSnQgs9HGJC9gmqHbwZkrXTfNZCvCWTcaA85rg-VY7UF7CA8G4sb_5kRZhuVpIXkt5sI3ZB8_A2_w7rJ2hF7_dNScwcf_0yPAhz3wiMwrqToXFTxx4MREmhj0Itm4F4-KMWfEfz18u8IL1lI8ZzfKqyOoLQlkdbM7PaLZ_4IjbL1NbXN_1AT0cg6WHgG"/>
-            <div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent"></div>
-            <div class="absolute bottom-0 left-0 p-6">
-                <h3 class="font-headline-sm text-headline-sm text-surface-container-lowest">Ocasiones Especiales</h3>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-6 w-full flex justify-between items-end">
+                <div>
+                    <h3 class="font-headline-sm text-headline-sm text-surface-container-lowest">Ocasiones Especiales</h3>
+                </div>
+                <div class="w-7 h-7 rounded-full bg-surface-container-lowest/20 backdrop-blur-sm flex items-center justify-center text-surface-container-lowest group-hover:bg-primary group-hover:text-on-primary transition-all duration-300 shrink-0">
+                    <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                </div>
             </div>
         </div>
-        <div class="group relative rounded-sm overflow-hidden h-[280px] cursor-pointer bg-surface-container-low flex items-center justify-center p-6 text-center border border-outline-variant/20 hover:border-secondary transition-colors duration-300" id="talleres">
+        <!-- Small Items: Talleres & Experiencias -->
+        <div class="group relative rounded-sm overflow-hidden h-[280px] cursor-pointer bg-surface-container-low flex items-center justify-center p-6 text-center border border-outline-variant/20 hover:border-secondary hover:bg-surface-container transition-all duration-300" id="talleres" data-category-card="talleres-experiencias">
             <div>
-                <span class="material-symbols-outlined text-4xl text-secondary mb-4" data-icon="local_activity">local_activity</span>
+                <span class="material-symbols-outlined text-4xl text-secondary mb-3 group-hover:scale-110 transition-transform" data-icon="local_activity">local_activity</span>
                 <h3 class="font-headline-sm text-headline-sm text-on-surface">Talleres &amp; Experiencias</h3>
-                <p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Aprende el arte botánico.</p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Aprende el arte botánico.</p>
+                <span class="mt-3 inline-flex items-center gap-1 text-[11px] font-label-md text-secondary uppercase tracking-wider">
+                    Consultar fechas <span class="material-symbols-outlined text-xs">arrow_forward</span>
+                </span>
             </div>
         </div>
     </div>
@@ -269,9 +293,18 @@
 
 <!-- Featured Products (Dynamic) -->
 <section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-surface" id="coleccion">
-    <div class="text-center mb-16">
+    <div class="text-center mb-10">
         <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg md:font-headline-lg text-on-surface mb-4">Colección de Temporada</h2>
         <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Nuestra selección curada de arreglos diseñados con las flores más bellas de la estación, listos para sorprender.</p>
+    </div>
+    
+    <!-- Category Filter Pills -->
+    <div id="category-filters" class="flex flex-wrap justify-center gap-2 mb-12">
+        <button class="category-filter-btn px-5 py-2 text-xs font-semibold uppercase tracking-wider rounded-full border border-primary bg-primary text-on-primary transition-all cursor-pointer" data-filter="all">Todos</button>
+        <button class="category-filter-btn px-5 py-2 text-xs font-semibold uppercase tracking-wider rounded-full border border-outline-variant text-on-surface hover:border-primary transition-all cursor-pointer" data-filter="arreglos-autor">Arreglos de Autor</button>
+        <button class="category-filter-btn px-5 py-2 text-xs font-semibold uppercase tracking-wider rounded-full border border-outline-variant text-on-surface hover:border-primary transition-all cursor-pointer" data-filter="bodas-eventos">Bodas y Eventos</button>
+        <button class="category-filter-btn px-5 py-2 text-xs font-semibold uppercase tracking-wider rounded-full border border-outline-variant text-on-surface hover:border-primary transition-all cursor-pointer" data-filter="ocasiones-especiales">Ocasiones Especiales</button>
+        <button class="category-filter-btn px-5 py-2 text-xs font-semibold uppercase tracking-wider rounded-full border border-outline-variant text-on-surface hover:border-primary transition-all cursor-pointer" data-filter="talleres-experiencias">Talleres & Experiencias</button>
     </div>
     
     <!-- Products Grid (dynamically populated) -->

@@ -5,18 +5,21 @@ import { createSpecialOrder, generateWhatsAppLink, generateSpecialOrderWhatsAppL
 // MAIN — Public Storefront Logic
 // ============================================
 
+let allProducts = []
+let currentCategoryFilter = 'all'
+
 document.addEventListener('DOMContentLoaded', () => {
   initMobileMenu()
   loadProducts()
   initSpecialOrderForm()
   initInstagramEmbeds()
+  initCategoryInteractions()
 })
 
 function initInstagramEmbeds() {
   if (window.instgrm) {
     window.instgrm.Embeds.process()
   } else {
-    // If script is still loading, wait and process
     const checkInterval = setInterval(() => {
       if (window.instgrm) {
         window.instgrm.Embeds.process()
@@ -41,7 +44,6 @@ function initMobileMenu() {
     btn.querySelector('span').textContent = isOpen ? 'menu' : 'close'
   })
 
-  // Close menu when clicking a link
   menu.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       menu.classList.add('hidden')
@@ -58,19 +60,8 @@ async function loadProducts() {
   if (!grid) return
 
   try {
-    const products = await fetchProducts()
-
-    if (!products || products.length === 0) {
-      grid.innerHTML = `
-        <div class="col-span-full text-center py-16">
-          <span class="material-symbols-outlined text-6xl text-outline-variant mb-4">local_florist</span>
-          <p class="font-body-md text-body-md text-on-surface-variant">Próximamente nuevos arreglos disponibles.</p>
-        </div>
-      `
-      return
-    }
-
-    grid.innerHTML = products.map(product => renderProductCard(product)).join('')
+    allProducts = await fetchProducts()
+    renderProducts(allProducts)
   } catch (err) {
     console.error('Error loading products:', err)
     grid.innerHTML = `
@@ -83,13 +74,53 @@ async function loadProducts() {
 }
 
 // ============================================
+// Render Filtered Products
+// ============================================
+function renderProducts(products) {
+  const grid = document.getElementById('products-grid')
+  if (!grid) return
+
+  if (!products || products.length === 0) {
+    let customMessage = 'Próximamente nuevos arreglos disponibles en esta categoría.'
+    let ctaButton = ''
+
+    if (currentCategoryFilter === 'bodas-eventos') {
+      customMessage = 'Diseñamos ambientaciones y conceptos florales únicos para bodas y eventos especiales.'
+      ctaButton = `
+        <a href="#contacto" class="mt-4 inline-flex items-center gap-2 px-8 py-3 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider rounded-sm hover:bg-primary/90 transition-all">
+          <span class="material-symbols-outlined text-sm">edit_note</span> Solicitar Cotización para Evento
+        </a>
+      `
+    } else if (currentCategoryFilter === 'talleres-experiencias') {
+      customMessage = 'Aprende el arte botánico y técnicas de diseño floral en nuestros talleres presenciales en Monterrey.'
+      ctaButton = `
+        <a href="https://wa.me/528180990117?text=${encodeURIComponent('¡Hola! 🌸 Me gustaría recibir información y próximas fechas de sus Talleres de Arte Botánico.')}" target="_blank" rel="noopener" class="mt-4 inline-flex items-center gap-2 px-8 py-3 border border-secondary text-secondary hover:bg-secondary hover:text-on-secondary font-label-md text-label-md uppercase tracking-wider rounded-sm transition-all">
+          <span class="material-symbols-outlined text-sm">chat</span> Consultar Próximas Fechas por WhatsApp
+        </a>
+      `
+    }
+
+    grid.innerHTML = `
+      <div class="col-span-full text-center py-16 px-4 max-w-lg mx-auto bg-surface-container-low/50 rounded-sm border border-outline-variant/10">
+        <span class="material-symbols-outlined text-5xl text-secondary mb-3">local_florist</span>
+        <p class="font-body-md text-body-md text-on-surface-variant mb-2">${customMessage}</p>
+        ${ctaButton}
+      </div>
+    `
+    return
+  }
+
+  grid.innerHTML = products.map(product => renderProductCard(product)).join('')
+}
+
+// ============================================
 // Render a single product card
 // ============================================
 function renderProductCard(product) {
   const priceFormatted = `$${Number(product.price).toLocaleString('es-MX')} MXN`
   const whatsappLink = generateWhatsAppLink(product)
   const badgeHTML = product.badge
-    ? `<div class="absolute top-4 left-4">
+    ? `<div class="absolute top-4 left-4 z-10">
          <span class="px-3 py-1 bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface font-label-md text-label-md rounded-full shadow-sm text-[10px] tracking-wider uppercase">${escapeHTML(product.badge)}</span>
        </div>`
     : ''
@@ -97,7 +128,7 @@ function renderProductCard(product) {
   const imageUrl = product.image_url || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"%3E%3Crect fill="%23efeeeb" width="400" height="500"/%3E%3Ctext x="200" y="250" text-anchor="middle" fill="%23c4c7c7" font-size="48"%3E🌸%3C/text%3E%3C/svg%3E'
 
   return `
-    <div class="group flex flex-col">
+    <div class="group flex flex-col transition-all duration-300">
       <div class="relative w-full aspect-[4/5] bg-surface-container-low overflow-hidden mb-6 rounded-sm">
         <img
           alt="${escapeHTML(product.name)}"
@@ -124,6 +155,85 @@ function renderProductCard(product) {
       </div>
     </div>
   `
+}
+
+// ============================================
+// Interactive Category Filtering & Bento Clicks
+// ============================================
+function initCategoryInteractions() {
+  // Category Filter Buttons
+  const filterBtns = document.querySelectorAll('.category-filter-btn')
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.dataset.filter
+      applyCategoryFilter(filter)
+    })
+  })
+
+  // Bento Grid Category Cards ("Nuestra Esencia")
+  const bentoCards = document.querySelectorAll('[data-category-card]')
+  bentoCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const targetCategory = card.dataset.categoryCard
+
+      if (targetCategory === 'talleres-experiencias') {
+        // Scroll to special order form and set option
+        const contactSection = document.getElementById('contacto')
+        if (contactSection) {
+          contactSection.scrollIntoView({ behavior: 'smooth' })
+          const eventSelect = document.getElementById('order-event-type')
+          if (eventSelect) eventSelect.value = 'otro'
+          const detailsArea = document.getElementById('order-details')
+          if (detailsArea && !detailsArea.value) {
+            detailsArea.value = 'Me gustaría recibir información sobre los próximos talleres de arte floral.'
+          }
+        }
+        return
+      }
+
+      if (targetCategory === 'bodas-eventos') {
+        const coleccionSection = document.getElementById('coleccion')
+        if (coleccionSection) {
+          coleccionSection.scrollIntoView({ behavior: 'smooth' })
+        }
+        applyCategoryFilter('bodas-eventos')
+        return
+      }
+
+      // Default categories: Arreglos de autor, Ocasiones especiales
+      applyCategoryFilter(targetCategory)
+      const coleccionSection = document.getElementById('coleccion')
+      if (coleccionSection) {
+        coleccionSection.scrollIntoView({ behavior: 'smooth' })
+      }
+    })
+  })
+}
+
+function applyCategoryFilter(filterSlug) {
+  currentCategoryFilter = filterSlug
+
+  // Update button active styles
+  const filterBtns = document.querySelectorAll('.category-filter-btn')
+  filterBtns.forEach(btn => {
+    const isSelected = btn.dataset.filter === filterSlug
+    if (isSelected) {
+      btn.className = 'category-filter-btn px-5 py-2 text-xs font-semibold uppercase tracking-wider rounded-full border border-primary bg-primary text-on-primary transition-all cursor-pointer shadow-sm'
+    } else {
+      btn.className = 'category-filter-btn px-5 py-2 text-xs font-semibold uppercase tracking-wider rounded-full border border-outline-variant text-on-surface hover:border-primary transition-all cursor-pointer'
+    }
+  })
+
+  // Filter products list
+  if (filterSlug === 'all') {
+    renderProducts(allProducts)
+  } else {
+    const filtered = allProducts.filter(p => {
+      const catSlug = p.categories?.slug || ''
+      return catSlug === filterSlug
+    })
+    renderProducts(filtered)
+  }
 }
 
 // ============================================
@@ -168,13 +278,11 @@ function initSpecialOrderForm() {
       }
 
       try {
-        // Save to DB first
         await createSpecialOrder({ ...orderData, whatsapp_sent: true })
       } catch (err) {
         console.warn('Could not save to DB, proceeding to WhatsApp:', err)
       }
 
-      // Open WhatsApp
       const link = generateSpecialOrderWhatsAppLink(orderData)
       window.open(link, '_blank')
       form.reset()
