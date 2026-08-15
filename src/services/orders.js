@@ -1,6 +1,6 @@
 import { supabase } from '../lib/supabase.js'
 
-const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || '5215512345678'
+const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER || '528180990117'
 
 /**
  * Generar link de WhatsApp para un producto
