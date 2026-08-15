@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Panel Admin — Fiore Taller Floral</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/src/styles/admin.css"/>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    "background": "#faf9f6",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#1a1c1a",
+                    "on-surface-variant": "#444748",
+                    "primary": "#171818",
+                    "primary-container": "#2c2c2c",
+                    "outline-variant": "#c4c7c7",
+                    "outline": "#747878",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f4f3f1",
+                    "surface-container": "#efeeeb",
+                    "secondary": "#546250",
+                    "secondary-container": "#d4e4cd",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                },
+                fontFamily: {
+                    "body-md": ["Plus Jakarta Sans"],
+                    "body-sm": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-sm": ["EB Garamond"],
+                    "headline-md": ["EB Garamond"],
+                },
+            }
+        }
+    }
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased">
+
+<div class="admin-layout">
+    <!-- Sidebar Backdrop (mobile) -->
+    <div id="sidebar-backdrop" class="sidebar-backdrop"></div>
+
+    <!-- Sidebar -->
+    <aside id="admin-sidebar" class="admin-sidebar">
+        <div class="sidebar-header">
+            <a href="/" class="font-headline-sm text-headline-sm text-primary block" style="font-family: 'EB Garamond', serif; font-size: 20px;">
+                🌸 Fiore Admin
+            </a>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#dashboard" class="active" data-section="dashboard">
+                <span class="material-symbols-outlined">dashboard</span>
+                Dashboard
+            </a>
+            <a href="#products" data-section="products">
+                <span class="material-symbols-outlined">local_florist</span>
+                Productos
+            </a>
+            <a href="#categories" data-section="categories">
+                <span class="material-symbols-outlined">category</span>
+                Categorías
+            </a>
+            <a href="#orders" data-section="orders">
+                <span class="material-symbols-outlined">receipt_long</span>
+                Pedidos Especiales
+                <span id="orders-badge" class="ml-auto badge badge-pending hidden" style="font-size:10px; padding: 2px 6px;"></span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <a href="/" class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors" style="font-size: 13px; font-family: 'Plus Jakarta Sans', sans-serif;">
+                <span class="material-symbols-outlined" style="font-size: 18px;">storefront</span>
+                Ver tienda
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="admin-main">
+        <!-- Top Bar -->
+        <header class="admin-topbar">
+            <div class="flex items-center gap-3">
+                <button id="sidebar-toggle" class="btn-icon md:hidden">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+                <h2 id="page-title" class="font-headline-sm text-on-surface" style="font-family: 'EB Garamond', serif; font-size: 22px;">
+                    Dashboard
+                </h2>
+            </div>
+            <div class="flex items-center gap-3">
+                <span id="admin-email" class="text-on-surface-variant hidden md:inline" style="font-size: 13px;"></span>
+                <button id="logout-btn" class="btn btn-secondary" style="font-size: 11px; padding: 6px 12px;">
+                    <span class="material-symbols-outlined" style="font-size: 14px;">logout</span>
+                    Salir
+                </button>
+            </div>
+        </header>
+
+        <!-- Dynamic Content Area -->
+        <div id="admin-content" class="admin-content">
+            <!-- Content loaded dynamically by admin.js -->
+        </div>
+    </div>
+</div>
+
+<!-- Product Modal -->
+<div id="product-modal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="product-modal-title" class="font-headline-sm text-on-surface" style="font-family: 'EB Garamond', serif;">Nuevo Producto</h3>
+            <button class="btn-icon" data-close-modal="product-modal">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <form id="product-form">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label" for="pf-name">Nombre del arreglo *</label>
+                    <input class="form-input" id="pf-name" name="name" required placeholder="Ej. Jardín Silvestre"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="pf-description">Descripción</label>
+                    <textarea class="form-textarea" id="pf-description" name="description" placeholder="Breve descripción del arreglo..." rows="2"></textarea>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label" for="pf-price">Precio (MXN) *</label>
+                        <input class="form-input" id="pf-price" name="price" type="number" step="0.01" min="0" required placeholder="1250.00"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="pf-category">Categoría</label>
+                        <select class="form-select" id="pf-category" name="category_id">
+                            <option value="">Sin categoría</option>
+                        </select>
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label" for="pf-badge">Etiqueta</label>
+                        <input class="form-input" id="pf-badge" name="badge" placeholder="Ej. Nuevo, Más Vendido"/>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="pf-order">Orden</label>
+                        <input class="form-input" id="pf-order" name="display_order" type="number" min="0" value="0"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Imagen del producto</label>
+                    <div id="image-upload-area" class="image-upload-area">
+                        <span class="material-symbols-outlined text-outline" style="font-size: 36px;">cloud_upload</span>
+                        <p style="font-size: 13px; color: #444748; margin-top: 0.5rem;">
+                            Arrastra una imagen o <strong>haz clic</strong> para seleccionar
+                        </p>
+                        <p style="font-size: 11px; color: #747878; margin-top: 0.25rem;">
+                            JPG, PNG o WebP — máx. 5MB
+                        </p>
+                        <input type="file" id="pf-image" name="image" accept="image/jpeg,image/png,image/webp" style="display:none;"/>
+                        <img id="pf-image-preview" class="image-preview" style="display:none;" alt="Preview"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="pf-image-url">O URL de imagen externa</label>
+                    <input class="form-input" id="pf-image-url" name="image_url" placeholder="https://..." type="url"/>
+                </div>
+                <div class="form-group" style="display:flex; align-items:center; gap: 0.75rem;">
+                    <label class="toggle">
+                        <input type="checkbox" id="pf-active" name="is_active" checked/>
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span style="font-size: 13px; color: #444748;">Producto activo (visible en la tienda)</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-close-modal="product-modal">Cancelar</button>
+                <button type="submit" id="pf-submit" class="btn btn-primary">Guardar Producto</button>
+            </div>
+            <input type="hidden" id="pf-id" name="id"/>
+        </form>
+    </div>
+</div>
+
+<!-- Category Modal -->
+<div id="category-modal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 450px;">
+        <div class="modal-header">
+            <h3 id="category-modal-title" class="font-headline-sm text-on-surface" style="font-family: 'EB Garamond', serif;">Nueva Categoría</h3>
+            <button class="btn-icon" data-close-modal="category-modal">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <form id="category-form">
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label" for="cf-name">Nombre *</label>
+                    <input class="form-input" id="cf-name" name="name" required placeholder="Ej. Arreglos de Autor"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="cf-slug">Slug (URL)</label>
+                    <input class="form-input" id="cf-slug" name="slug" placeholder="arreglos-de-autor"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="cf-description">Descripción</label>
+                    <textarea class="form-textarea" id="cf-description" name="description" rows="2" placeholder="Breve descripción..."></textarea>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div class="form-group">
+                        <label class="form-label" for="cf-order">Orden</label>
+                        <input class="form-input" id="cf-order" name="display_order" type="number" min="0" value="0"/>
+                    </div>
+                    <div class="form-group" style="display:flex; align-items:center; gap: 0.75rem; padding-top: 1.25rem;">
+                        <label class="toggle">
+                            <input type="checkbox" id="cf-active" name="is_active" checked/>
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span style="font-size: 13px; color: #444748;">Activa</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-close-modal="category-modal">Cancelar</button>
+                <button type="submit" id="cf-submit" class="btn btn-primary">Guardar Categoría</button>
+            </div>
+            <input type="hidden" id="cf-id" name="id"/>
+        </form>
+    </div>
+</div>
+
+<!-- Confirm Dialog -->
+<div id="confirm-modal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 400px;">
+        <div class="modal-header">
+            <h3 class="font-headline-sm text-on-surface" style="font-family: 'EB Garamond', serif;">Confirmar</h3>
+            <button class="btn-icon" data-close-modal="confirm-modal">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p id="confirm-message" style="font-size: 14px; color: #444748;"></p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-close-modal="confirm-modal">Cancelar</button>
+            <button type="button" id="confirm-action" class="btn btn-danger">Eliminar</button>
+        </div>
+    </div>
+</div>
+
+<!-- Toast -->
+<div id="admin-toast" class="admin-toast">
+    <div style="background: #171818; color: #ffffff; padding: 0.75rem 1.25rem; border-radius: 0.125rem; box-shadow: 0 8px 30px -5px rgba(0,0,0,0.15); display: flex; align-items: center; gap: 0.75rem; max-width: 350px;">
+        <span id="admin-toast-icon" class="material-symbols-outlined" style="font-size: 18px;">check_circle</span>
+        <span id="admin-toast-message" style="font-size: 13px;">Operación exitosa</span>
+    </div>
+</div>
+
+<script type="module" src="/src/admin.js"></script>
+</body>
+</html>

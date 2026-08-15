@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Acceso Admin — Fiore Taller Floral</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    "background": "#faf9f6",
+                    "on-primary": "#ffffff",
+                    "on-surface": "#1a1c1a",
+                    "on-surface-variant": "#444748",
+                    "primary": "#171818",
+                    "primary-container": "#2c2c2c",
+                    "outline-variant": "#c4c7c7",
+                    "outline": "#747878",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-low": "#f4f3f1",
+                    "surface-container": "#efeeeb",
+                    "secondary": "#546250",
+                    "secondary-container": "#d4e4cd",
+                    "error": "#ba1a1a",
+                    "error-container": "#ffdad6",
+                },
+                fontFamily: {
+                    "body-md": ["Plus Jakarta Sans"],
+                    "body-sm": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-sm": ["EB Garamond"],
+                    "headline-md": ["EB Garamond"],
+                },
+                fontSize: {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                }
+            }
+        }
+    }
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+</style>
+</head>
+<body class="bg-background min-h-screen flex items-center justify-center px-5 font-body-md antialiased">
+
+<div class="w-full max-w-md">
+    <!-- Logo -->
+    <div class="text-center mb-10">
+        <a href="/" class="font-headline-md text-headline-md text-primary inline-block hover:opacity-80 transition-opacity">
+            Fiore Taller Floral
+        </a>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Panel de Administración</p>
+    </div>
+
+    <!-- Login Card -->
+    <div class="bg-surface-container-lowest p-8 md:p-10 rounded-sm shadow-[0_4px_40px_-10px_rgba(84,98,80,0.08)] border border-outline-variant/10">
+        <h1 class="font-headline-sm text-headline-sm text-on-surface text-center mb-8">Iniciar Sesión</h1>
+
+        <!-- Error Message -->
+        <div id="login-error" class="hidden mb-6 px-4 py-3 bg-error-container/50 border border-error/20 rounded-sm">
+            <p id="login-error-text" class="font-body-sm text-body-sm text-error text-center"></p>
+        </div>
+
+        <form id="login-form" class="space-y-6">
+            <div>
+                <label class="block font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-2" for="login-email">
+                    Correo electrónico
+                </label>
+                <input
+                    class="block w-full border border-outline-variant bg-transparent py-3 px-4 text-on-surface font-body-md text-body-md rounded-sm focus:ring-2 focus:ring-secondary focus:border-secondary transition-colors"
+                    id="login-email"
+                    name="email"
+                    placeholder="admin@fioretaller.com"
+                    type="email"
+                    required
+                    autocomplete="email"
+                />
+            </div>
+            <div>
+                <label class="block font-label-md text-label-md text-on-surface-variant uppercase tracking-widest mb-2" for="login-password">
+                    Contraseña
+                </label>
+                <div class="relative">
+                    <input
+                        class="block w-full border border-outline-variant bg-transparent py-3 px-4 pr-12 text-on-surface font-body-md text-body-md rounded-sm focus:ring-2 focus:ring-secondary focus:border-secondary transition-colors"
+                        id="login-password"
+                        name="password"
+                        placeholder="••••••••"
+                        type="password"
+                        required
+                        autocomplete="current-password"
+                    />
+                    <button type="button" id="toggle-password" class="absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant hover:text-primary transition-colors">
+                        <span class="material-symbols-outlined text-xl">visibility</span>
+                    </button>
+                </div>
+            </div>
+            <button
+                id="login-submit"
+                class="w-full py-4 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider hover:bg-primary/90 transition-all duration-300 rounded-sm flex items-center justify-center gap-2"
+                type="submit"
+            >
+                Acceder al Panel
+            </button>
+        </form>
+    </div>
+
+    <div class="text-center mt-8">
+        <a href="/" class="font-body-sm text-body-sm text-on-surface-variant hover:text-primary transition-colors inline-flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">arrow_back</span>
+            Volver a la tienda
+        </a>
+    </div>
+</div>
+
+<script type="module" src="/src/login.js"></script>
+</body>
+</html>

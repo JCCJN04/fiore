@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fiore Taller Floral | Boutique Botanical Studio</title>
+<meta name="description" content="Fiore Taller Floral — Diseños florales artesanales y arreglos de autor con alma botánica en Ciudad de México. Flores frescas, bodas, eventos y talleres."/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+        darkMode: "class",
+        theme: {
+            extend: {
+                "colors": {
+                    "surface-tint": "#5f5e5e",
+                    "surface-dim": "#dbdad7",
+                    "surface-container-lowest": "#ffffff",
+                    "background": "#faf9f6",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#1b1c1c",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#e9e8e5",
+                    "tertiary-container": "#432501",
+                    "error": "#ba1a1a",
+                    "surface-bright": "#faf9f6",
+                    "on-error-container": "#93000a",
+                    "on-surface-variant": "#444748",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "error-container": "#ffdad6",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-fixed": "#121f10",
+                    "on-tertiary-fixed": "#2c1600",
+                    "primary-container": "#2c2c2c",
+                    "inverse-on-surface": "#f2f1ee",
+                    "surface-variant": "#e3e2e0",
+                    "secondary-fixed-dim": "#bbcbb5",
+                    "on-secondary-container": "#586754",
+                    "inverse-primary": "#c8c6c5",
+                    "primary": "#171818",
+                    "outline-variant": "#c4c7c7",
+                    "surface-container-low": "#f4f3f1",
+                    "on-tertiary-fixed-variant": "#623f18",
+                    "surface-container": "#efeeeb",
+                    "primary-fixed": "#e4e2e1",
+                    "secondary-container": "#d4e4cd",
+                    "secondary-fixed": "#d7e7d0",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed": "#ffdcbd",
+                    "tertiary-fixed-dim": "#f0bd8b",
+                    "on-surface": "#1a1c1a",
+                    "secondary": "#546250",
+                    "on-tertiary-container": "#b88a5c",
+                    "outline": "#747878",
+                    "on-secondary-fixed-variant": "#3d4a39",
+                    "on-background": "#1a1c1a",
+                    "surface-container-highest": "#e3e2e0",
+                    "surface": "#faf9f6",
+                    "inverse-surface": "#2f312f",
+                    "on-primary-container": "#949393",
+                    "on-primary-fixed-variant": "#474747",
+                    "tertiary": "#271300"
+                },
+                "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+                },
+                "spacing": {
+                    "gutter": "24px",
+                    "container-max": "1280px",
+                    "section-gap": "120px",
+                    "margin-desktop": "64px",
+                    "margin-mobile": "20px",
+                    "unit": "8px"
+                },
+                "fontFamily": {
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["EB Garamond"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "display-lg": ["EB Garamond"],
+                    "headline-sm": ["EB Garamond"],
+                    "headline-lg": ["EB Garamond"],
+                    "body-sm": ["Plus Jakarta Sans"],
+                    "headline-md": ["EB Garamond"]
+                },
+                "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "400"}],
+                    "body-sm": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "400"}]
+                }
+            }
+        }
+    }
+</script>
+<style>
+    .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.filled {
+        font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Skeleton loading animation */
+    @keyframes skeleton-pulse {
+        0%, 100% { opacity: 0.4; }
+        50% { opacity: 0.8; }
+    }
+    .skeleton {
+        animation: skeleton-pulse 1.5s ease-in-out infinite;
+        background: linear-gradient(90deg, #efeeeb 25%, #e3e2e0 50%, #efeeeb 75%);
+        background-size: 200% 100%;
+    }
+    
+    /* Toast notification */
+    .toast {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 100;
+        transform: translateY(100px);
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .toast.show {
+        transform: translateY(0);
+        opacity: 1;
+    }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden selection:bg-secondary-container selection:text-on-secondary-container">
+
+<!-- TopNavBar -->
+<nav class="bg-background/90 dark:bg-background/90 backdrop-blur-md text-primary dark:text-primary-fixed border-b border-outline-variant/30 docked full-width top-0 sticky z-50 transition-all duration-300">
+<div class="flex justify-between items-center px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto h-20">
+    <!-- Logo -->
+    <a class="font-headline-sm text-headline-sm tracking-tight text-primary dark:text-primary-fixed flex items-center gap-2" href="/">
+        Fiore Taller Floral
+    </a>
+    <!-- Desktop Navigation -->
+    <ul class="hidden md:flex gap-8 items-center">
+        <li><a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">Inicio</a></li>
+        <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#coleccion">Colección</a></li>
+        <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#ocasiones">Ocasiones</a></li>
+        <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#talleres">Talleres/Eventos</a></li>
+        <li><a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-300 font-label-md text-label-md" href="#contacto">Contacto</a></li>
+    </ul>
+    <!-- Trailing Icons -->
+    <div class="flex items-center gap-4">
+        <button id="mobile-menu-btn" class="md:hidden text-on-surface-variant hover:text-primary transition-colors duration-300 focus:outline-none">
+            <span class="material-symbols-outlined" data-icon="menu">menu</span>
+        </button>
+    </div>
+</div>
+<!-- Mobile menu -->
+<div id="mobile-menu" class="md:hidden hidden border-t border-outline-variant/30 bg-background/95 backdrop-blur-md">
+    <ul class="flex flex-col gap-1 px-margin-mobile py-4">
+        <li><a class="block py-3 text-primary font-label-md text-label-md" href="#">Inicio</a></li>
+        <li><a class="block py-3 text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#coleccion">Colección</a></li>
+        <li><a class="block py-3 text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#ocasiones">Ocasiones</a></li>
+        <li><a class="block py-3 text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#talleres">Talleres/Eventos</a></li>
+        <li><a class="block py-3 text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors" href="#contacto">Contacto</a></li>
+    </ul>
+</div>
+</nav>
+
+<main>
+<!-- Hero Section -->
+<section class="relative h-[85vh] w-full flex items-center justify-center overflow-hidden">
+    <div class="absolute inset-0 z-0">
+        <img alt="Hero Image — Arreglo floral de lujo en estudio botánico" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpIdne5CJ1ms0bDqhN_sTCzbCyi4PV6TriqEcIXT3XBfgGDqA32Wdy8uCou8J4JIOtGbTu4eZdtmo1NsB6nae08Omc15f_7wDNJxdLHIZZydVDIHE351CRt7b02iOii8ZpbyL7mbSfZMlCcDyOLLLb7xNrDKNBHF4B8ljsCKDcqG8mPVNoKfQhpeizbPtS-tDEq_SBjuRAK9mIpl4r9CnoQ7Jmvsg0vjQ2Gtv8NsydSS-XSjcq4egQ"/>
+        <div class="absolute inset-0 bg-surface-container-lowest/20 mix-blend-overlay"></div>
+    </div>
+    <div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-4xl mx-auto flex flex-col items-center gap-6">
+        <h1 class="font-display-lg text-display-lg md:font-display-lg md:text-display-lg text-surface-container-lowest tracking-tight drop-shadow-sm leading-tight text-balance">
+            El arte floral que transforma momentos en recuerdos
+        </h1>
+        <p class="font-body-lg text-body-lg text-surface-container-lowest/90 max-w-2xl mx-auto drop-shadow-sm">
+            Diseños artesanales y arreglos de autor con alma botánica.
+        </p>
+        <a class="mt-8 inline-flex items-center justify-center px-8 py-4 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider hover:bg-primary/90 transition-all duration-300 rounded-sm" href="#coleccion">
+            Explorar Colección
+        </a>
+    </div>
+</section>
+
+<!-- Values Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto border-b border-surface-variant/50">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-gutter">
+        <div class="flex flex-col items-center text-center gap-4">
+            <div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center text-secondary mb-2">
+                <span class="material-symbols-outlined text-3xl" data-icon="local_florist">local_florist</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Flores frescas del día</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant text-balance">Seleccionamos cuidadosamente cada tallo de cultivadores locales cada mañana para garantizar la máxima frescura y belleza.</p>
+        </div>
+        <div class="flex flex-col items-center text-center gap-4">
+            <div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center text-secondary mb-2">
+                <span class="material-symbols-outlined text-3xl" data-icon="brush">brush</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Diseño 100% personalizado</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant text-balance">Creamos composiciones únicas que reflejan tu estilo y la emoción que deseas transmitir. Ningún arreglo es igual a otro.</p>
+        </div>
+        <div class="flex flex-col items-center text-center gap-4">
+            <div class="w-16 h-16 rounded-full bg-surface-container-low flex items-center justify-center text-secondary mb-2">
+                <span class="material-symbols-outlined text-3xl" data-icon="local_shipping">local_shipping</span>
+            </div>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Entregas locales cuidadosas</h3>
+            <p class="font-body-sm text-body-sm text-on-surface-variant text-balance">Nuestro equipo entrega cada arreglo a mano, asegurando que llegue en perfectas condiciones y en el momento indicado.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Category Bento Grid -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg md:font-headline-lg text-on-surface">Nuestra Esencia</h2>
+        <a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors flex items-center gap-1 mt-4 md:mt-0 uppercase tracking-widest" href="#coleccion">
+            Ver todas <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+        </a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[600px]">
+        <!-- Large Item 1 -->
+        <div class="group relative md:col-span-2 md:row-span-2 rounded-sm overflow-hidden h-[400px] md:h-auto cursor-pointer">
+            <img alt="Arreglos de Autor" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOjXgFLx7yBL9PvHQjCM9VxNQ726lVSI4Ma9ZEJtb_-BzCpwQVznblpfCZvyV_nHnWHQjKBy2dR8cXbd_I0WDgeoLd6zkILDbIPt9__EUfdiWMM_NKmmB55YDCukp6LKHWO9KHtdbOtuGi1oq__yhdG9shLDPTSNAdgw-Fv61PoHOUEJXPjXkOb0g8nOK9jzxLtejqJmc4TkoszLy6TllDFEpcmq5mUK6MIbyukZIA5cih2Qnruo-0"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-8">
+                <h3 class="font-headline-md text-headline-md text-surface-container-lowest">Arreglos de Autor</h3>
+                <p class="font-body-sm text-body-sm text-surface-container-lowest/80 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">Diseños únicos e irrepetibles.</p>
+            </div>
+        </div>
+        <!-- Medium Item 1 -->
+        <div class="group relative md:col-span-2 rounded-sm overflow-hidden h-[300px] cursor-pointer">
+            <img alt="Bodas y Eventos" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD58cVvGTwuDwnXkfuUNDbZMXAspA0y1_XleKQdZbld9lOvZQn4JPcPU0DhXlkc1i5Oj9U4KY5b0vJBJiD_puKCYoQiaue-ltdMPNvkLE_U3cwQ_TDXYdQslnYY7WeW65g3I3Ao3wFIJZsr4Zyf2f1G2dN6l0B3LYDFp171ylIOOqoHyuea_Fz2_T-EEuhh4ZeOk8gmttc3MDvCIUfyIdYLnTeVBTe9nxB8vLT0VVgOSAmwqHuEBJRp"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-6">
+                <h3 class="font-headline-sm text-headline-sm text-surface-container-lowest">Bodas y Eventos</h3>
+            </div>
+        </div>
+        <!-- Small Items -->
+        <div class="group relative rounded-sm overflow-hidden h-[280px] cursor-pointer">
+            <img alt="Ocasiones Especiales" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYvWxL3Cn22A0GuZmuLv2zhuTpl6xpuxxyQLalwvngyQwKcJw6X5oJb3tQRSnQgs9HGJC9gmqHbwZkrXTfNZCvCWTcaA85rg-VY7UF7CA8G4sb_5kRZhuVpIXkt5sI3ZB8_A2_w7rJ2hF7_dNScwcf_0yPAhz3wiMwrqToXFTxx4MREmhj0Itm4F4-KMWfEfz18u8IL1lI8ZzfKqyOoLQlkdbM7PaLZ_4IjbL1NbXN_1AT0cg6WHgG"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-0 left-0 p-6">
+                <h3 class="font-headline-sm text-headline-sm text-surface-container-lowest">Ocasiones Especiales</h3>
+            </div>
+        </div>
+        <div class="group relative rounded-sm overflow-hidden h-[280px] cursor-pointer bg-surface-container-low flex items-center justify-center p-6 text-center border border-outline-variant/20 hover:border-secondary transition-colors duration-300" id="talleres">
+            <div>
+                <span class="material-symbols-outlined text-4xl text-secondary mb-4" data-icon="local_activity">local_activity</span>
+                <h3 class="font-headline-sm text-headline-sm text-on-surface">Talleres &amp; Experiencias</h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Aprende el arte botánico.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Products (Dynamic) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-surface" id="coleccion">
+    <div class="text-center mb-16">
+        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg md:font-headline-lg text-on-surface mb-4">Colección de Temporada</h2>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl mx-auto">Nuestra selección curada de arreglos diseñados con las flores más bellas de la estación, listos para sorprender.</p>
+    </div>
+    
+    <!-- Products Grid (dynamically populated) -->
+    <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+        <!-- Skeleton loaders (shown while loading) -->
+        <div class="skeleton-card flex flex-col">
+            <div class="skeleton w-full aspect-[4/5] rounded-sm mb-6"></div>
+            <div class="skeleton h-6 w-3/4 rounded mb-2"></div>
+            <div class="skeleton h-4 w-1/2 rounded mb-4"></div>
+            <div class="skeleton h-5 w-1/3 rounded"></div>
+        </div>
+        <div class="skeleton-card flex flex-col">
+            <div class="skeleton w-full aspect-[4/5] rounded-sm mb-6"></div>
+            <div class="skeleton h-6 w-3/4 rounded mb-2"></div>
+            <div class="skeleton h-4 w-1/2 rounded mb-4"></div>
+            <div class="skeleton h-5 w-1/3 rounded"></div>
+        </div>
+        <div class="skeleton-card flex flex-col hidden sm:flex">
+            <div class="skeleton w-full aspect-[4/5] rounded-sm mb-6"></div>
+            <div class="skeleton h-6 w-3/4 rounded mb-2"></div>
+            <div class="skeleton h-4 w-1/2 rounded mb-4"></div>
+            <div class="skeleton h-5 w-1/3 rounded"></div>
+        </div>
+        <div class="skeleton-card flex flex-col hidden lg:flex">
+            <div class="skeleton w-full aspect-[4/5] rounded-sm mb-6"></div>
+            <div class="skeleton h-6 w-3/4 rounded mb-2"></div>
+            <div class="skeleton h-4 w-1/2 rounded mb-4"></div>
+            <div class="skeleton h-5 w-1/3 rounded"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Instagram Feed -->
+<section class="py-section-gap overflow-hidden">
+    <div class="text-center mb-10 px-margin-mobile">
+        <a class="font-headline-md text-headline-md text-on-surface hover:text-secondary transition-colors inline-block" href="https://instagram.com/fiore.tallerfloral" target="_blank" rel="noopener">@fiore.tallerfloral</a>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mt-2">Síguenos en nuestra galería botánica.</p>
+    </div>
+    <div class="flex gap-4 overflow-x-auto pb-8 snap-x snap-mandatory hide-scrollbar px-4 md:px-margin-desktop w-full">
+        <a class="relative flex-none w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] snap-center group overflow-hidden bg-surface-container-low" href="https://instagram.com/fiore.tallerfloral" target="_blank" rel="noopener">
+            <img alt="Instagram Post — Artesanía floral" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiudbGv8eTkGdf7y5jW33ADIB014A_xrwqj1ZNQa--3K3K4VX4C3MG8hqplFMI8CoQYkfd7o8acXGVT34lZByTG5laTgkqhK04T93N7GQTheWxzqCsPwtbejcMscKz2n4IN1-sc8DPMZ-IrzFcuwEhL8YDXg8ut5pewhDKwcDB6fEyx5jo8s3nAPdS1Pgyy2NQpcCo7vRqh_MZv4nnHGOEDfI_vPkjoRrZprOo_Lu5TqR8h36aoZpv"/>
+            <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="material-symbols-outlined text-surface-container-lowest text-3xl" data-icon="favorite">favorite</span>
+            </div>
+        </a>
+        <a class="relative flex-none w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] snap-center group overflow-hidden bg-surface-container-low" href="https://instagram.com/fiore.tallerfloral" target="_blank" rel="noopener">
+            <img alt="Instagram Post — Mesa elegante con flores" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBPUiG8XCNEBjKMev__0HufYfCI8WoGmUObdpb643uB89ps-i6KQwgVU7YYCO87JyJUMkOPrHxZzsMiWjgbUsYYAwfw5HvR8eRna9DBRxOdeFIA1_ULTtbtYziA6WAXH5_DjY5EIwcLMbLFVeQFjuKfcRgkcx93_TrOw4Cb3PCxinzv4PSDDBZJLExbu46ib2I0fDGJhJoqWOkuS3yM7FSRHwJCd4QbtRxiKNAVKOwwh0O0cC-xDcSm"/>
+            <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="material-symbols-outlined text-surface-container-lowest text-3xl" data-icon="favorite">favorite</span>
+            </div>
+        </a>
+        <a class="relative flex-none w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] snap-center group overflow-hidden bg-surface-container-low" href="https://instagram.com/fiore.tallerfloral" target="_blank" rel="noopener">
+            <img alt="Instagram Post — Estudio floral" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkBgY7TOuPlxGO0Vy7DbLugfeYMJoRndhGoXQWzAWnLupz6zyZx3T2z3oOStKAA48XD-xJejIQ3aVZka9kCUNG7p8_aMEguT3qlDWv9AAROQj6ZJ4GRBLzhj3XQCNlndwOx_fLQQuIBIA_QImxeD7k1zMYNwvyMRubsH7P0osGnlYWwc7myzDzY_KgoqgKLGYLmH4KU8mqgovWKW4BuSdZYrcL5dT5uvyqaLZ9olUDX1y0N9_j1MHZ"/>
+            <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="material-symbols-outlined text-surface-container-lowest text-3xl" data-icon="favorite">favorite</span>
+            </div>
+        </a>
+        <a class="relative flex-none w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] snap-center group overflow-hidden bg-surface-container-low hidden md:block" href="https://instagram.com/fiore.tallerfloral" target="_blank" rel="noopener">
+            <img alt="Instagram Post — Arreglo monumental" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyNtES6M9QT6hQorrwoko2meaF7MBz-zZ1UbzaJiKnXysh1W_ZKWNBrh1mCNWqQIZ3Qa2ZF1Un95-wJjFEpyEEKccVqi4hxa2ghKkyuU8jR6EuYv9U-vbkcqK1I6EJvtpXmO8UBPMjmdXqeEtjj7IJ4KxcIHG6QZshVK8IHoMWWSaYi_VmisNYaSlOpMXFVaXOK_nIY1-jWtDyYJucZsuMBGkggVdNrWzeEpIrgpSIH6j6o_-6DjX4"/>
+            <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="material-symbols-outlined text-surface-container-lowest text-3xl" data-icon="favorite">favorite</span>
+            </div>
+        </a>
+        <a class="relative flex-none w-[280px] h-[280px] sm:w-[320px] sm:h-[320px] snap-center group overflow-hidden bg-surface-container-low hidden lg:block" href="https://instagram.com/fiore.tallerfloral" target="_blank" rel="noopener">
+            <img alt="Instagram Post — Detalle de ranúnculo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5_aGCfBZGaaHn1Q6vj70HH9trdHVlHcA_UJ_SJokJve_cS40_vpbvZPPTYFGnUPEd0QhPCbBdyCbLgjcmJ3xmqpq0VYk3-R5VsxVBPmRkAjN7V2r-g-U4E_OaA8WQXck2CS8q43j9xUf6GsNoJtRhwdBMQz1zTtKv393aPQArmqUt76Rcr4442aZheY1KLQLGMNNFZzOmB9-A5v14sq9RHN07-cMW4UDYg_sI-J4hxTL_GQR4e6z-"/>
+            <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span class="material-symbols-outlined text-surface-container-lowest text-3xl" data-icon="favorite">favorite</span>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- Special Orders Form -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low/50" id="contacto">
+    <div class="max-w-3xl mx-auto bg-surface-container-lowest p-8 md:p-16 shadow-[0_4px_40px_-10px_rgba(84,98,80,0.05)] border border-outline-variant/10 rounded-sm relative overflow-hidden">
+        <!-- Decorative Element -->
+        <div class="absolute top-0 right-0 w-32 h-32 bg-secondary-container/20 rounded-bl-full -z-10"></div>
+        <div class="text-center mb-10">
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg md:font-headline-lg text-on-surface mb-4">Pedidos Especiales</h2>
+            <p class="font-body-md text-body-md text-on-surface-variant">Cuéntanos tu visión y nosotros diseñaremos algo extraordinario. Completa los detalles a continuación.</p>
+        </div>
+        <form id="special-order-form" class="space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="relative group">
+                    <input class="block w-full border-0 border-b border-outline-variant bg-transparent py-3 px-0 text-on-surface font-body-md text-body-md focus:ring-0 focus:border-secondary focus:bg-surface-container-low/50 transition-colors peer placeholder-transparent" id="order-name" name="name" placeholder="Nombre completo" type="text" required/>
+                    <label class="absolute left-0 top-3 text-on-surface-variant font-body-sm text-body-sm transition-all duration-300 peer-placeholder-shown:text-body-md peer-placeholder-shown:top-3 peer-focus:-top-3 peer-focus:text-body-sm peer-focus:text-secondary" for="order-name">Nombre completo</label>
+                </div>
+                <div class="relative group">
+                    <input class="block w-full border-0 border-b border-outline-variant bg-transparent py-3 px-0 text-on-surface font-body-md text-body-md focus:ring-0 focus:border-secondary focus:bg-surface-container-low/50 transition-colors peer placeholder-transparent" id="order-email" name="email" placeholder="Correo electrónico" type="email"/>
+                    <label class="absolute left-0 top-3 text-on-surface-variant font-body-sm text-body-sm transition-all duration-300 peer-placeholder-shown:text-body-md peer-placeholder-shown:top-3 peer-focus:-top-3 peer-focus:text-body-sm peer-focus:text-secondary" for="order-email">Correo electrónico</label>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="relative">
+                    <select class="block w-full border-0 border-b border-outline-variant bg-transparent py-3 px-0 text-on-surface font-body-md text-body-md focus:ring-0 focus:border-secondary focus:bg-surface-container-low/50 transition-colors appearance-none cursor-pointer" id="order-event-type" name="event_type">
+                        <option class="text-on-surface-variant" disabled="" selected="" value="">Tipo de evento u ocasión</option>
+                        <option value="boda">Boda</option>
+                        <option value="aniversario">Aniversario</option>
+                        <option value="corporativo">Evento Corporativo</option>
+                        <option value="regalo">Regalo Especial</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                    <span class="material-symbols-outlined absolute right-0 top-3 text-on-surface-variant pointer-events-none" data-icon="expand_more">expand_more</span>
+                </div>
+                <div class="relative">
+                    <select class="block w-full border-0 border-b border-outline-variant bg-transparent py-3 px-0 text-on-surface font-body-md text-body-md focus:ring-0 focus:border-secondary focus:bg-surface-container-low/50 transition-colors appearance-none cursor-pointer" id="order-budget" name="budget">
+                        <option class="text-on-surface-variant" disabled="" selected="" value="">Presupuesto estimado</option>
+                        <option value="$1,000 - $2,000 MXN">$1,000 - $2,000 MXN</option>
+                        <option value="$2,000 - $5,000 MXN">$2,000 - $5,000 MXN</option>
+                        <option value="Más de $5,000 MXN">Más de $5,000 MXN</option>
+                        <option value="Por definir">Por definir / Consultar</option>
+                    </select>
+                    <span class="material-symbols-outlined absolute right-0 top-3 text-on-surface-variant pointer-events-none" data-icon="expand_more">expand_more</span>
+                </div>
+            </div>
+            <div class="relative group">
+                <input class="block w-full border-0 border-b border-outline-variant bg-transparent py-3 px-0 text-on-surface font-body-md text-body-md focus:ring-0 focus:border-secondary focus:bg-surface-container-low/50 transition-colors peer placeholder-transparent" id="order-date" name="delivery_date" placeholder="Fecha de entrega" type="date"/>
+                <label class="absolute left-0 -top-3 text-on-surface-variant font-body-sm text-body-sm transition-all duration-300 text-secondary" for="order-date">Fecha de entrega</label>
+            </div>
+            <div class="relative group mt-12">
+                <textarea class="block w-full border-0 border-b border-outline-variant bg-transparent py-3 px-0 text-on-surface font-body-md text-body-md focus:ring-0 focus:border-secondary focus:bg-surface-container-low/50 transition-colors peer placeholder-transparent resize-none" id="order-details" name="details" placeholder="Detalles de tu visión" rows="3"></textarea>
+                <label class="absolute left-0 top-3 text-on-surface-variant font-body-sm text-body-sm transition-all duration-300 peer-placeholder-shown:text-body-md peer-placeholder-shown:top-3 peer-focus:-top-3 peer-focus:text-body-sm peer-focus:text-secondary" for="order-details">Detalles de tu visión (colores, flores favoritas, estilo)</label>
+            </div>
+            <div class="pt-6 flex flex-col sm:flex-row gap-4 justify-center">
+                <button id="submit-order-btn" class="inline-flex items-center justify-center px-10 py-4 bg-primary text-on-primary font-label-md text-label-md uppercase tracking-wider hover:bg-primary/90 transition-all duration-300 rounded-sm w-full sm:w-auto" type="submit">
+                    Solicitar Presupuesto
+                </button>
+                <button id="submit-whatsapp-btn" class="inline-flex items-center justify-center gap-2 px-10 py-4 border border-secondary text-secondary font-label-md text-label-md uppercase tracking-wider hover:bg-secondary hover:text-on-secondary transition-all duration-300 rounded-sm w-full sm:w-auto" type="button">
+                    <span class="material-symbols-outlined text-[18px]" data-icon="chat">chat</span>
+                    Enviar por WhatsApp
+                </button>
+            </div>
+        </form>
+    </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest text-secondary dark:text-secondary-fixed full-width">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-gap max-w-container-max mx-auto">
+    <!-- Brand Column -->
+    <div class="flex flex-col gap-4">
+        <span class="font-headline-sm text-headline-sm text-primary dark:text-primary-fixed">Fiore Taller Floral</span>
+        <p class="font-body-sm text-body-sm text-on-surface-variant max-w-xs text-balance">
+            Diseños florales de autor para celebrar la belleza de la naturaleza en cada momento.
+        </p>
+        <div class="flex gap-4 mt-2">
+            <a class="text-on-surface-variant hover:text-primary transition-colors focus:outline-none" href="https://instagram.com/fiore.tallerfloral" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" fill-rule="evenodd"></path></svg>
+            </a>
+        </div>
+    </div>
+    <!-- Links Column -->
+    <div class="flex flex-col gap-4">
+        <span class="font-label-md text-label-md text-on-surface uppercase tracking-widest">Información</span>
+        <ul class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface-variant">
+            <li><a class="hover:text-primary transition-colors" href="#">Horarios</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Área de Cobertura</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Políticas de Envío</a></li>
+            <li><a class="hover:text-primary transition-colors" href="#">Términos y Condiciones</a></li>
+        </ul>
+    </div>
+    <!-- Contact Column -->
+    <div class="flex flex-col gap-4">
+        <span class="font-label-md text-label-md text-on-surface uppercase tracking-widest">Contacto</span>
+        <ul class="flex flex-col gap-3 font-body-sm text-body-sm text-on-surface-variant">
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="location_on">location_on</span> Estudio en Ciudad de México</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="mail">mail</span> hola@fioretaller.com</li>
+            <li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px]" data-icon="phone">phone</span> +52 55 1234 5678</li>
+        </ul>
+    </div>
+    <!-- Newsletter Column -->
+    <div class="flex flex-col gap-4">
+        <span class="font-label-md text-label-md text-on-surface uppercase tracking-widest">Boletín Botánico</span>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Únete para recibir inspiración floral y novedades exclusivas.</p>
+        <form class="flex gap-2 border-b border-outline-variant pb-2 focus-within:border-primary transition-colors">
+            <input class="bg-transparent border-none focus:ring-0 w-full font-body-sm text-body-sm px-0 py-1 text-on-surface placeholder:text-outline" placeholder="Tu correo electrónico" type="email"/>
+            <button class="text-on-surface-variant hover:text-primary transition-colors" type="submit">
+                <span class="material-symbols-outlined text-[20px]" data-icon="arrow_forward">arrow_forward</span>
+            </button>
+        </form>
+    </div>
+</div>
+<div class="border-t border-outline-variant/20 px-margin-mobile md:px-margin-desktop py-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
+    <span class="font-body-sm text-body-sm text-on-surface-variant opacity-70">
+        © 2024 Fiore Taller Floral. Boutique Botanical Studio.
+    </span>
+    <span class="font-body-sm text-body-sm text-on-surface-variant opacity-50 text-[10px] tracking-widest uppercase">
+        Designed with intention
+    </span>
+</div>
+</footer>
+
+<!-- Toast notification container -->
+<div id="toast" class="toast">
+    <div class="bg-primary text-on-primary px-6 py-4 rounded-sm shadow-lg flex items-center gap-3 max-w-sm">
+        <span id="toast-icon" class="material-symbols-outlined text-xl">check_circle</span>
+        <span id="toast-message" class="font-body-sm text-body-sm">Operación exitosa</span>
+    </div>
+</div>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
