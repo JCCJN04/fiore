@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // If already logged in, redirect to admin
   const session = await getSession()
   if (session) {
-    window.location.href = '/admin.html'
+    window.location.href = '/admin'
     return
   }
 
@@ -35,7 +35,7 @@ function initLoginForm() {
       `
 
       await signIn(email, password)
-      window.location.href = '/admin.html'
+      window.location.href = '/admin'
     } catch (err) {
       console.error('Login error:', err)
       errorText.textContent = getErrorMessage(err)

@@ -23,7 +23,7 @@ export async function signOut() {
   if (error) {
     console.error('Error signing out:', error)
   }
-  window.location.href = '/login.html'
+  window.location.href = '/login'
 }
 
 /**
@@ -40,7 +40,7 @@ export async function getSession() {
 export async function requireAuth() {
   const session = await getSession()
   if (!session) {
-    window.location.href = '/login.html'
+    window.location.href = '/login'
     return null
   }
   return session

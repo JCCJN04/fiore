@@ -15,4 +15,19 @@ export default defineConfig({
     port: 3000,
     open: true,
   },
+  plugins: [
+    {
+      name: 'html-rewrite',
+      configureServer(server) {
+        server.middlewares.use((req, res, next) => {
+          if (req.url === '/login' || req.url === '/login/') {
+            req.url = '/login.html'
+          } else if (req.url === '/admin' || req.url === '/admin/') {
+            req.url = '/admin.html'
+          }
+          next()
+        })
+      },
+    },
+  ],
 })

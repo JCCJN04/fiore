@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Listen for auth changes
   onAuthChange((event) => {
     if (event === 'SIGNED_OUT') {
-      window.location.href = '/login.html'
+      window.location.href = '/login'
     }
   })
 })
